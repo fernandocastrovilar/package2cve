@@ -1,1 +1,1 @@
-from package2cve import Package2Cve
+from Package2Cve import Package2Cve
