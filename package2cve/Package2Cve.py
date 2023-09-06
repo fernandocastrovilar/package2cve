@@ -51,8 +51,8 @@ class Package2Cve:
             return error
 
     def package_cve(self, os, package, version):
-        if os not in DEBIAN_CODENAMES:
-            raise Exception("Debian codename not valid")
+        if os not in DEBIAN_CODENAMES.values():
+            raise Exception("Debian codename '{0}' not valid".format(os))
         vulnerabilities = self._determine_cve(package, version, os)
         if not vulnerabilities:
             """

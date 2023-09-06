@@ -23,9 +23,14 @@
 
 ```bash
 pip install package2cve
-remote_host_packages_cve("HOSTNAME", "user", "password/None")
-or
-package_cve("os_codename", "package_name", "version")
+```
+```python
+from package2cve.Package2Cve import Package2Cve
+op = Package2Cve()
+# Get remote host package cve. It use ssh connection so password can be "password" or None
+op.remote_host_packages_cve("HOSTNAME", "user", "password/None")
+# Get package version cve
+op.package_cve("os_codename", "package_name", "version")
 ```
 
 ## License
