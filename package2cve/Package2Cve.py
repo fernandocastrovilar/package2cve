@@ -113,7 +113,7 @@ class Package2Cve:
                 package = {
                             "package_name": f"{package_name}",
                             "cve_list": {
-                                "cve": f"{str(cve_list)}"
+                                "cve": cve_list
                             },
                             "current_version": f"{package_version}",
                             "latest_fixed_version": f"{latest_fixed_version}"
