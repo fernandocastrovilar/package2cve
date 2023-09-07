@@ -120,7 +120,7 @@ class Package2Cve:
                             }
                 remote_list.append(package)
             if not remote_list:
-                return "{'no vulnerabilities found'}"
+                return {"result": "no vulnerabilities found"}
             list_str = json.dumps(remote_list)
             return list_str
         except Exception as error:
