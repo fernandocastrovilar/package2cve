@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "package2cve"
+version = "1.0.0"
+description = "Give a hostname (SSH or Teleport) to get package CVEs, or pass a Debian package plus version"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Fernando Castro", email = "whit3bl0cker@gmail.com" }]
+requires-python = ">=3.9"
+dependencies = [
+    "requests",
+    "python-debian",
+    "paramiko",
+]
+
+[project.urls]
+Homepage = "https://github.com/fernandocastrovilar/package2cve"
+
+[project.scripts]
+package2cve = "package2cve.cli:main"
+
+[tool.setuptools]
+packages = ["package2cve"]
