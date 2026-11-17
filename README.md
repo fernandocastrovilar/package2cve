@@ -54,7 +54,23 @@ curl -o tracker.json https://security-tracker.debian.org/tracker/data/json
 package2cve --tracker-file tracker.json host mynode -u root --teleport
 ```
 
-Output is JSON on stdout. Exit code is `0` when nothing is found, `1` when
+Output is JSON on stdout. Add `-s` / `--short` (anywhere in the command) to
+get a readable table instead, with what is installed, the version that fixes
+it and the latest one available:
+
+```
+$ package2cve host myserver -u root --short
+PACKAGE   INSTALLED         FIXED IN          LATEST            CVES
+openssl   3.0.15-1~deb12u1  3.0.22-1~deb12u2  3.0.22-1~deb12u2    38
+expat     2.5.0-1+deb12u1   2.5.0-1+deb12u5   2.5.0-1+deb12u5     30
+
+2 packages, 68 CVEs (bookworm)
+```
+
+`FIXED IN` is `-` for CVEs without a fix yet (only shown with
+`--include-unfixed`).
+
+Exit code is `0` when nothing is found, `1` when
 vulnerabilities are found and `2` on errors.
 
 ## Library
